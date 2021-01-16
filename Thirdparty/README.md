@@ -1,6 +1,6 @@
 # Thirdparty libraries
 
-Clone Pangolin here:
+- Clone Pangolin:
 
 ```sh
 git clone https://github.com/stevenlovegrove/Pangolin.git
@@ -9,4 +9,9 @@ mkdir build
 cd build
 cmake ..
 cmake --build .
+```
+
+- Clone Eigen:
+```sh
+git clone https://gitlab.com/libeigen/eigen
 ```
