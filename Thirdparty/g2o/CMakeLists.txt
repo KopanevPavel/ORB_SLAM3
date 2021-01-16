@@ -6,6 +6,8 @@ PROJECT(g2o)
 SET(g2o_C_FLAGS)
 SET(g2o_CXX_FLAGS)
 
+SET(G2O_EIGEN3_INCLUDE "../eigen")
+
 # default built type
 IF(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE Release)
