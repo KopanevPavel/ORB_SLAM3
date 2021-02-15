@@ -6,24 +6,24 @@
 Camera.type: "PinHole"
 
 # Camera calibration and distortion parameters (OpenCV) (equal for both cameras after stereo rectification)
-Camera.fx: 435.2046959714599
-Camera.fy: 435.2046959714599
-Camera.cx: 367.4517211914062
-Camera.cy: 252.2008514404297
+Camera.fx: 816.40221474060002
+Camera.fy: 817.38388562809996
+Camera.cx: 608.82658427579997
+Camera.cy: 266.68865652440002
 
 Camera.k1: 0.0
 Camera.k2: 0.0
 Camera.p1: 0.0
 Camera.p2: 0.0
 
-Camera.width: 752
-Camera.height: 480
+Camera.width: 1280
+Camera.height: 560
 
 # Camera frames per second 
-Camera.fps: 20.0
+Camera.fps: 10.0
 
 # stereo baseline times fx
-Camera.bf: 47.90639384423901
+Camera.bf: 392.6894652899
 
 # Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
 Camera.RGB: 1
@@ -36,16 +36,17 @@ Tbc: !!opencv-matrix
    rows: 4
    cols: 4
    dt: f
-   data: [0.0148655429818, -0.999880929698, 0.00414029679422, -0.0216401454975,
-         0.999557249008, 0.0149672133247, 0.025715529948, -0.064676986768,
-        -0.0257744366974, 0.00375618835797, 0.999660727178, 0.00981073058949,
-         0.0, 0.0, 0.0, 1.0]
+   data: [-0.00413,-0.01966,0.99980,1.73944,
+           -0.99993,-0.01095,-0.00435,0.27803,
+           0.01103,-0.99975,-0.01962,-0.08785,
+           0.00000,0.00000,0.00000,1.00000
+          ]
 
 # IMU noise
-IMU.NoiseGyro: 1.7e-04 # 1.6968e-04 
-IMU.NoiseAcc: 2.0e-03 # 2.0000e-3
-IMU.GyroWalk: 1.9393e-05 
-IMU.AccWalk: 3.e-03 # 3.0000e-3
+IMU.NoiseGyro: 1.6968e-04 # 1.6968e-04
+IMU.NoiseAcc: 1.0000e-3 # 2.0000e-3
+IMU.GyroWalk: 1.9393e-05
+IMU.AccWalk: 3.0000e-3 # 3.0000e-3
 IMU.Frequency: 200
 
 #--------------------------------------------------------------------------------------------
