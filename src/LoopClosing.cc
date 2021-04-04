@@ -432,7 +432,7 @@ bool LoopClosing::NewDetectCommonRegions()
     {
         //f_time_pr << "Geo" << " " << timeGeoKF_ms.count() << endl;
         mpKeyFrameDB->add(mpCurrentKF);
-        return true;
+        return false;
     }
 
     //-------------
@@ -489,7 +489,7 @@ bool LoopClosing::NewDetectCommonRegions()
 
     if(mbMergeDetected || mbLoopDetected)
     {
-        return true;
+        return false;
     }
 
     //cout << "LC: erase KF" << endl;

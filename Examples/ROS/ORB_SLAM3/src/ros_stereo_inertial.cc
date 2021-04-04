@@ -69,8 +69,6 @@ public:
     cv::Ptr<cv::CLAHE> mClahe = cv::createCLAHE(3.0, cv::Size(8, 8));
 };
 
-
-
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "Stereo_Inertial");
@@ -145,6 +143,16 @@ int main(int argc, char **argv)
   std::thread sync_thread(&ImageGrabber::SyncWithImu,&igb);
 
   ros::spin();
+
+  // Stop all threads
+  SLAM.Shutdown();
+
+  // Save camera trajectory
+  SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory_TUM_Format.txt");
+  SLAM.SaveTrajectoryTUM("FrameTrajectory_TUM_Format.txt");
+  SLAM.SaveTrajectoryKITTI("FrameTrajectory_KITTI_Format.txt");
+
+  ros::shutdown();
 
   return 0;
 }

@@ -1,0 +1,134 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+Camera.type: "PinHole"
+
+# Camera calibration and distortion parameters (OpenCV) (equal for both cameras after stereo rectification)
+Camera.fx: 1374.4090727008036
+Camera.fy: 1374.4090727008036
+Camera.cx: 921.9671660844081
+Camera.cy: 624.2101580788693
+
+Camera.k1: 0.0
+Camera.k2: 0.0
+Camera.p1: 0.0
+Camera.p2: 0.0
+
+Camera.width: 1874
+Camera.height: 1216
+
+# Camera frames per second 
+Camera.fps: 10.0
+
+# stereo baseline times fx
+Camera.bf: 547.665494189
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 0
+
+# Close/Far threshold. Baseline times.
+ThDepth: 35.0 # 35
+
+# Transformation from camera 0 to body-frame (imu)
+Tbc: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [ 0.00272077,  0.00360273,  0.99998981,  0.06520282,
+          -0.99999473, -0.00176036,  0.00272713,  0.41722941,
+           0.00177017, -0.99999196,  0.00359792, -0.02428344,
+           0., 0., 0., 1.]
+
+# IMU noise
+IMU.NoiseGyro: 7.820960990682721e-05 # 0.00153286925867 # 0.0216780449496
+IMU.GyroWalk: 0.00011674258988557314
+IMU.NoiseAcc: 0.0003926580986902694 # 0.00035110650771 # 0.00496539585041
+IMU.AccWalk: 0.0006412931920377834
+IMU.Frequency: 200
+
+#--------------------------------------------------------------------------------------------
+# Stereo Rectification. Only if you need to pre-rectify the images.
+# Camera.fx, .fy, etc must be the same as in LEFT.P
+#--------------------------------------------------------------------------------------------
+LEFT.height: 1216
+LEFT.width: 1874
+LEFT.D: !!opencv-matrix
+   rows: 1
+   cols: 5
+   dt: d
+   data: [-0.1632825246085882, 0.10817123254011998, -0.0009202261934830559, 0.004375460426764552, 0.0]
+LEFT.K: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [1406.0606599707116, 0.0, 996.3877717448887, 0.0, 1406.0606599707116, 624.6051213842194, 0.0, 0.0, 1.0]
+LEFT.R:  !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [9.98890541e-01, -4.39203063e-03,  4.68870578e-02, 4.39686632e-03,  9.99990334e-01, -9.93981135e-18, -4.68866046e-02,  2.06156125e-04,  9.98900197e-01]
+LEFT.P:  !!opencv-matrix
+   rows: 3
+   cols: 4
+   dt: d
+   data: [1374.4090727008036, 0.0, 921.9671660844081, 0.0, 0.0, 1374.4090727008036, 624.2101580788693, 0.0, 0.0, 0.0, 1.0, 0.0]
+
+RIGHT.height: 1216
+RIGHT.width: 1874
+RIGHT.D: !!opencv-matrix
+   rows: 1
+   cols: 5
+   dt: d
+   data: [-0.15766446577593327, 0.07739350622828431, 0.0002589522957251619, 0.0023433204964677275, 0.0]
+RIGHT.K: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [1404.9131353706039, 0.0, 984.7708034301393, 0.0, 1404.9131353706039, 625.093301741276, 0.0, 0.0, 1]
+RIGHT.R:  !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [9.99675432e-01, -4.01486243e-04,  2.54729129e-02, 3.07847263e-04,  9.99993182e-01,  3.67983671e-03, -2.54742167e-02, -3.67080059e-03,  9.99668740e-01]
+RIGHT.P:  !!opencv-matrix
+   rows: 3
+   cols: 4
+   dt: d
+   data: [1374.4090727008036, 0.0, 921.9671660844081, 0.0, 0.0, 1374.4090727008036, 624.2101580788693, 0.0, 0.0, 0.0, 1.0, 0.0]
+
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 1200
+
+# ORB Extractor: Scale factor between levels in the scale pyramid 	
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid	
+ORBextractor.nLevels: 8
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast			
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize:2
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500
+
