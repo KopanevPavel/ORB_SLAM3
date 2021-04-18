@@ -1229,6 +1229,7 @@ bool Tracking::PredictStateIMU()
     if(!mCurrentFrame.mpPrevFrame)
     {
         Verbose::PrintMess("No last frame", Verbose::VERBOSITY_NORMAL);
+        // std::cout<<"No last frame!!"<<std::endl;
         return false;
     }
 
@@ -1422,6 +1423,7 @@ void Tracking::Track()
         else if(mCurrentFrame.mTimeStamp>mLastFrame.mTimeStamp+1.0)
         {
             cout << "id last: " << mLastFrame.mnId << "    id curr: " << mCurrentFrame.mnId << endl;
+            cout << std::fixed << "T CURRENT: " << mCurrentFrame.mTimeStamp << "T LAST: " << mLastFrame.mTimeStamp << endl;
             if(mpAtlas->isInertial())
             {
 

@@ -88,7 +88,7 @@ public:
         RGBD=2,
         IMU_MONOCULAR=3,
         IMU_STEREO=4,
-        RGBD_IMU=3
+        RGBD_IMU=5
     };
 
     // File type

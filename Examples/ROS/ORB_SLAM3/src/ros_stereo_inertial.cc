@@ -275,6 +275,9 @@ void ImageGrabber::SyncWithImu()
         cv::remap(imRight,imRight,M1r,M2r,cv::INTER_LINEAR);
       }
 
+
+      std::cout << std::fixed << "IMU vector size: " << vImuMeas.size() << std::endl;
+
       mpSLAM->TrackStereo(imLeft,imRight,tImLeft,vImuMeas);
 
       std::chrono::milliseconds tSleep(1);
